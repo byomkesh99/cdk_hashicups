@@ -14,6 +14,25 @@ We should have installed the following packages with version in the system:
 * Terraform v1.4.6
 * Git
 
+Once the above packages installed and the platform is ready, do the follwing steps to use application.
+
+1) In your system terminal clone this git repo - [Hashicups with CDK](https://github.com/byomkesh99/cdk_hashicups.git)
+2) Install [Hashicups Provider](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#install-hashicups-provider)
+3) Open one more terminal to run the Terraform Core. 
+
+            cd cdk_hashicups/packages/iac/hashicups-provider && docker compose up
+            
+4) You will see the output in the screen like below
+
+       [+] Running 2/0
+       ⠿ Container docker_compose-db-1   Created                                                                       0.0s
+       ⠿ Container docker_compose-api-1  Created                                                                       0.0s
+       Attaching to docker_compose-api-1, docker_compose-db-1
+       docker_compose-db-1   
+       docker_compose-db-1   | 2023-05-13 16:28:10.037 UTC [1] LOG:  database system is ready to accept connections
+       docker_compose-api-1  | 2023-05-13T16:28:10.351Z [INFO]  Starting service: bind=0.0.0.0:9090 metrics=localhost:9102
+
+           
 
 
 
