@@ -1,3 +1,28 @@
+# Running Hashicups as Provider to play with fun APIs and ordering coffees.
+
+To setup the environment, I have used CentOS Linux OS 7.9 as OS, with installing packages, Python, NodeJS, PNPM package manager, Docker, Git, Typescript (TS), Terraform, CDKTF (Cloud Development Kit for Terraform). 
+
+Prerequisite:
+We should have installed the following packages with version in the system:
+
+* Docker v(20.10.21), 
+* PNPM v8.5.0, 
+* Node v16.14.0, 
+* Python version should be >=3.6.0 (Python 3.7.3)
+* Typescript(Version 4.9.5)
+* CDKTF v0.16.1
+* Terraform v1.4.6
+* Git
+
+
+
+
+
+
+
+
+
+
 # Yassir take-home platform engineering challenge
 
 **Note**: Do not **fork** this repository. Just clone it locally. We do not accept pull requests.
