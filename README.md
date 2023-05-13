@@ -47,6 +47,16 @@ We should have installed the following packages with version in the system:
        
 8) Once you run the above mentioned command (mentioned in step 6) you can see the orders (order1 and order2 etc.) and the items inside the order.
 9) Now you can create another new directory and item files for ordering coffee. Here is the path "cdk_hashicups/platform-challenge/packages/iac/resources". Note, we are using directory name as resource id and file contents inside the file as order of items.
+10) Handy API call commands to play with CRUD operation
+        
+        Get order details by id:
+        curl -X GET  -H "Authorization: <generated JWT token value>" localhost:19090/orders/1
+
+        Get order details for all order:
+        curl -X GET  -H "Authorization: <generated JWT token value>" localhost:19090/orders
+
+        Delete order by id:
+        curl -X DELETE  -H "Authorization: <generated JWT token value>" localhost:19090/orders/1
 
 Important Note:
  - If your CDKTF version is different than what I mentioned here then please update it on file `cdk_hashicups/packages/iac/package.json` and then run `pnpm install` to load the dependencies.
