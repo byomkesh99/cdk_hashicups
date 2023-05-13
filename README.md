@@ -6,18 +6,19 @@ Prerequisite:
 We should have installed the following packages with version in the system:
 
 * Docker v(20.10.21), 
-* PNPM v8.5.0, 
-* Node v16.14.0, 
-* Python version should be >=3.6.0 (Python 3.7.3)
-* Typescript(Version 4.9.5)
-* CDKTF v0.16.1
+* Docker Compose
+* Python version should be >=3.6.0 (Python 3.7.3) - Try [PYENV](https://realpython.com/intro-to-pyenv/)
 * Terraform v1.4.6
 * Git
+* [PNPM](curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=8.5.0  sh -) v8.5.0,
+* Node v16.14.0, [Easy to install via NVM](https://tecadmin.net/install-nvm-on-amazon-linux/) 
+* [CDKTF](npm install --global cdktf-cli@latest) v0.16.1
+* Typescript -Version 4.9.5 (pnpm install will take are of it)
 
 Once the above packages installed and the platform is ready, do the follwing steps to use application.
 
 1) In your system terminal clone this git repo - [Hashicups with CDK](https://github.com/byomkesh99/cdk_hashicups.git)
-2) Install [Hashicups Provider](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#install-hashicups-provider)
+2) Hashicups provider already updated on "../cdk_hashicups/packages/iac/cdktf.json" in line number 9. If you wanted install [Locally downloaded & build Hashicups Provider](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#install-hashicups-provider) then use it. And update line number 9 as `"source": "hashicorp.com/edu/hashicups"`
 3) Open one more terminal to run the Terraform Core. 
 
             cd cdk_hashicups/packages/iac/hashicups-provider && docker compose up
