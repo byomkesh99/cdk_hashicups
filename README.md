@@ -18,7 +18,7 @@ We should have installed the following packages with version in the system:
  Once the above packages installed and the platform is ready, do the follwing steps to use application.
 
 1) In your system terminal clone this git repo - [Hashicups with CDK](https://github.com/byomkesh99/cdk_hashicups.git)
-2) Terraform registry for Hashicups provider already updated in file "../cdk_hashicups/packages/iac/cdktf.json" in the line number 9. If you want to build it locally then use this [link](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#install-hashicups-provider). Remember to update the line number 9 as `"source": "hashicorp.com/edu/hashicups"`
+2) Terraform registry for Hashicups provider already updated in file "../cdk_hashicups/packages/iac/cdktf.json" at line number 9. If you want to build it locally then use this [link](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#install-hashicups-provider). Remember to update the line number 9 as `"source": "hashicorp.com/edu/hashicups"`
 3) Now run the following command to pull all dependencies.
 
        cd cdk_hashicups && pnpm install
@@ -26,7 +26,7 @@ We should have installed the following packages with version in the system:
 
             cd cdk_hashicups/packages/iac/hashicups-provider && docker compose up
             
-5) You will see the output in the screen like below
+5) You will see the output in terminal like below
 
        [+] Running 2/0
        ⠿ Container docker_compose-db-1   Created                                                                       0.0s
