@@ -33,7 +33,15 @@ Once the above packages installed and the platform is ready, do the follwing ste
        docker_compose-api-1  | 2023-05-13T16:28:10.351Z [INFO]  Starting service: bind=0.0.0.0:9090 metrics=localhost:9102
 
            
+5) Now create new [Hashicups user](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#create-new-hashicups-user) which going to authenticate against protected endpoints
+6) Now go the path and run CRUD operation for ordering Coffee
 
+       cd cdk_hashicups/packages/iac
+       cdktf plan 
+       cdktf deploy
+       
+7) Once you run the above mentioned command (mentioned in point step 6) you can see the orders (order1 and order2) and the items inside the order.
+8) Now you can create another directory and files inside directory for ordering coffee. Here is the path "cdk_hashicups/platform-challenge/packages/iac/resources". Note, we are using using directory name as resource id and file contents inside the file as order of items.
 
 
 
