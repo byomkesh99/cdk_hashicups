@@ -1,4 +1,4 @@
-# Running Hashicups as Provider to play with fun APIs and ordering coffees.
+# Utilizing Hashicups as Provider to play with fun APIs and ordering coffees.
 
 To setup the environment, I have used CentOS Linux OS 7.9 as OS, with installing packages, Python, NodeJS, PNPM package manager, Docker, Git, Typescript (TS), Terraform, CDKTF (Cloud Development Kit for Terraform). 
 
@@ -18,7 +18,7 @@ We should have installed the following packages with version in the system:
  Once the above packages installed and the platform is ready, do the follwing steps to use application.
 
 1) In your system terminal clone this git repo - [Hashicups with CDK](https://github.com/byomkesh99/cdk_hashicups.git)
-2) Hashicups provider already updated in file "../cdk_hashicups/packages/iac/cdktf.json" in the line number 9. If you wanted install [Locally downloaded & build Hashicups Provider](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#install-hashicups-provider) then use it. And update line number 9 as `"source": "hashicorp.com/edu/hashicups"`
+2) Terraform registry for Hashicups provider already updated in file "../cdk_hashicups/packages/iac/cdktf.json" in the line number 9. If you want to build it locally then use this [link](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#install-hashicups-provider). Remember to update the line number 9 as `"source": "hashicorp.com/edu/hashicups"`
 3) Now run the following command to pull all dependencies.
 
        cd cdk_hashicups && pnpm install
