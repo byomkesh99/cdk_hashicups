@@ -1,12 +1,13 @@
+import { App, TerraformStack } from "cdktf";
 import { Construct } from "constructs";
-import { App, TerraformStack} from "cdktf";
-import { HashicupsProvider } from "./.gen/providers/hashicups/provider/index.js";
-import { Order } from "./.gen/providers/hashicups/order/index.js";
 import * as fs from 'fs';
 import * as path from 'path';
-// logic starts from here
+import { Order } from "./.gen/providers/hashicups/order/index.js";
+import { HashicupsProvider } from "./.gen/providers/hashicups/provider/index.js";
+
+
 interface MyStackConfig {
-  resourcePath: string;
+  resourcePath: string[];
 }
 
 class MyStack extends TerraformStack {
@@ -17,10 +18,12 @@ class MyStack extends TerraformStack {
       username: "education",
       password: "test123"});
 
-      new Order(this, "item", {
-        lastUpdated: Date.now.toString(),
-        items: loadItemList('./resources/'+config.resourcePath),
-      });   
+    const resourcePath = config.resourcePath;
+    for (let index = 0; index < resourcePath.length; index++) {
+      new Order(this, config.resourcePath[index], {
+        items: loadItemList(`./resources/${resourcePath[index]}`),
+      }); 
+    }
   }
 }
 
@@ -50,6 +53,5 @@ function loadItemList(dir: string) {
 }
 
 const app = new App();
-new MyStack(app, "order1", { resourcePath: "order1" });
-new MyStack(app, "order2", { resourcePath: "order2" });
+new MyStack(app, "stack", { resourcePath: ["order1","order2"]});
 app.synth();
