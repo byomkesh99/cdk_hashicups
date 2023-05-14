@@ -1,6 +1,6 @@
 # Utilizing Hashicups as Provider to play with fun APIs and ordering coffees.
 
-To setup the environment, I have used CentOS Linux OS 7.9 as OS, with installing packages, Python, NodeJS, PNPM package manager, Docker, Git, Typescript (TS), Terraform, CDKTF (Cloud Development Kit for Terraform). 
+To setup the environment, I have used CentOS Linux OS 7.9 as OS, with installing packages like Python, NodeJS, PNPM package manager, Docker, Git, Typescript (TS), Terraform, CDKTF (Cloud Development Kit for Terraform). 
 
 Prerequisite:
 We should have installed the following packages with version in the system:
@@ -15,16 +15,16 @@ We should have installed the following packages with version in the system:
 * CDKTF - v0.16.1 `npm install --global cdktf-cli@latest) v0.16.1 and then source ~/.bashrc`
 * Typescript -Version 4.9.5 (pnpm install will take are of it)
 
- Once the above packages installed and the platform is ready, do the follwing steps to use application.
+ Once the above packages gets installed and the platform is ready, do the follwing steps to use application.
 
-1) In your system terminal clone this git repo - [Hashicups with CDK](https://github.com/byomkesh99/cdk_hashicups.git)
+1) In one of your system terminal clone this git repo - [Hashicups with CDK](https://github.com/byomkesh99/cdk_hashicups.git)
 2) Terraform registry for Hashicups provider already updated in file "../cdk_hashicups/packages/iac/cdktf.json" at line number 9. If you want to build it locally then use this [link](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#install-hashicups-provider). Remember to update the line number 9 as `"source": "hashicorp.com/edu/hashicups"`
 3) Now run the following command to pull all dependencies.
 
        cd cdk_hashicups && pnpm install
 4) Open one more terminal to run the Terraform Core. 
 
-            cd cdk_hashicups/packages/iac/hashicups-provider && docker compose up
+       cd cdk_hashicups/packages/iac/hashicups-provider && docker compose up
             
 5) You will see the output in terminal like below
 
@@ -38,9 +38,9 @@ We should have installed the following packages with version in the system:
 
            
 6) Now create new [Hashicups user](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#create-new-hashicups-user) which going to authenticate against protected endpoints.
-7) Our target to achieve here are a) each order should be definable as a folder, and the name of the folder going to be used as a resource id, b) each file in the folder going to represent a single item of the order, in the file contents, we are going to have the quantity for the item.
+7) Our target to achieve here are a) each order should be definable as a folder, and the name of the folder going to be used as a resource id, b) each file in the folder going to represent a single item of the order in the file contents; we are going to have the quantity for the item.
 8) In this checkin code there are 2 order folder has been created under `~/cdk_hashicups/packages/iac/resources/` and there are items as order mentioned in file. 
-9) To see them, now go to the path and run CRUD operation for ordering items like Coffee. 
+9) To see them, now go to the path and run CRUD operation. 
 
        cd cdk_hashicups/packages/iac
        cdktf get              ## This will initialize the project with required module
@@ -48,9 +48,9 @@ We should have installed the following packages with version in the system:
        cdktf deploy           ## deploy the resources.
              
 10) Once you run the above mentioned commands, you can see the orders (order1 and order2 etc.) and the items inside the order in Terminal. To view/get the order id, check this file `~/cdk_hashicups/packages/iac/cdktf.out/stacks/stack/cdk.tf.json`.
-11) Use the API command (mentioned in steps number 13) to view all orders, delete orders etc.
-12) Now if you wanted to add new items (as order), create file `cdk_hashicups/packages/iac/resources/order[1 or 2]/item[0-100]`. and copy the file content from any items and then change the quantity number and id. And then run `cdktf plan/deploy` for adding items.
-13) If you wanted to create new resource then create new folder `cdk_hashicups/packages/iac/resources/order[0-100]` and then add the new items as file and their content. Here you need to edit one line in file `~/cdk_hashicups/packages/iac/main.ts` line number 56 that is  `new MyStack(app, "stack", { resourcePath: ["order1","order2", "order[0-100]"]});`. Meaning, exact new folder name created in `cdk_hashicups/packages/iac/resources/`. Now you have again perform `cdktf plan/deploy` for adding resources. To remind again, we are using directory name as resource id and file contents inside the file as order of items.
+11) Use the API command (mentioned in steps number 14) to view all orders, delete orders etc.
+12) Now if you wanted to add new items (as order), create file `cdk_hashicups/packages/iac/resources/order[1 or 2]/item[0-100]`. and copy the file content from any exiting items and then change the quantity number and id. And then run `cdktf plan/deploy` for adding items.
+13) If you wanted to create new resource then create new folder `cdk_hashicups/packages/iac/resources/order[0-100]` and then add the new items as file and their content. Here you need to edit one line in program file `~/cdk_hashicups/packages/iac/main.ts` line number 56 i.e.  `new MyStack(app, "stack", { resourcePath: ["order1","order2", "order[0-100]"]});`. Meaning, exact new folder name created in `cdk_hashicups/packages/iac/resources/`. Now you have to again perform `cdktf plan/deploy` for adding resources. To remind here again, we are using directory name as resource id and file contents inside the file as order of items. At this point, App is complete ready to play with it.
 14) Handy API call commands to play with CRUD operation
         
         Get order details by id:
@@ -62,7 +62,7 @@ We should have installed the following packages with version in the system:
         Delete order by id:
         curl -X DELETE  -H "Authorization: <generated JWT token value>" localhost:19090/orders/1
 
-Important Note:
+## Important Note:
  - If your CDKTF version is different than what I mentioned here then please update it on file `cdk_hashicups/packages/iac/package.json` and then run `pnpm install` to load the dependencies.
  - CDKTF mismatched versions going to show like below
      
