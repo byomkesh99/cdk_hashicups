@@ -39,12 +39,18 @@ We should have installed the following packages with version in the system:
            
 6) Now create new [Hashicups user](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#create-new-hashicups-user) which going to authenticate against protected endpoints.
 7) The requirement is to:
+
+
        * Each order should be definable as a folder, and the name of the folder going to be used as a resource id
        * Each file in the folder going to represent a single item of the order in the file contents; we are going to have the quantity for the item.
        * Make this process of deplying resources(orders) to be as automated as possible for the developers/engineers.
+
+
 8) This has been implemented by creating:
+
        * order specific folder under `~/cdk_hashicups/packages/iac/resources/` and 
        * items for each order(s) as JSON file under order specific folder(s). 
+       
 9) Adding a new resource: Any developer needing to add a new order(resource) needs to create a folder named as order<x> with files(as items). To accomodate this, in the main.ts file, replace this
     
        new MyStack(app, "stack", { resourcePath: ["order1","order2"]});
@@ -56,13 +62,13 @@ with this
 10) Updating an existing resource: Any developer needing to add a new item needs to create a file named item`<x>` the existing order`<x>` folder. 
 11) To see the changes & deploy them, now go to the path and run CRUD operation.  
     
-           <p>
+           
            cd cdk_hashicups/packages/iac
            cdktf get              ## This will initialize the project with required module
            cdktf plan             ## It will display all the orders and how many resources going to add/update/remove
            cdktf deploy           ## deploy the resources. You play with CRUD operation now
            cdktf destroy          ## to destroy the resources. 
-           <\p>
+           
              
 12) Once you run the above mentioned commands, you can see the orders (order1 and order2 etc.) and the items inside the order in Terminal. To view/get the order id, check this file `~/cdk_hashicups/packages/iac/cdktf.out/stacks/stack/cdk.tf.json`.
 13) Use the API command (mentioned in steps number 16) to view all orders, delete orders etc.
