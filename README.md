@@ -47,12 +47,14 @@ We should have installed the following packages with version in the system:
        * items for each order(s) as JSON file under order specific folder(s). 
 9) Adding a new resource: Any developer needing to add a new order(resource) needs to create a folder named as order<x> with files(as items). To accomodate this, in the main.ts file, replace this
     
-       new MyStack(app, "stack", { resourcePath: ["order1","order2"]}); 
+       new MyStack(app, "stack", { resourcePath: ["order1","order2"]});
+    
 with this 
+    
        new MyStack(app, "stack", { resourcePath: ["order1","order2", "order<x>"]});
     
 10) Updating an existing resource: Any developer needing to add a new item needs to create a file named item<x> the existing order<x> folder. 
-11) To see the changes & deploy them, now go to the path and run CRUD operation.
+11) To see the changes & deploy them, now go to the path and run CRUD operation.  
 
        cd cdk_hashicups/packages/iac
        cdktf get              ## This will initialize the project with required module
