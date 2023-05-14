@@ -39,16 +39,19 @@ We should have installed the following packages with version in the system:
            
 6) Now create new [Hashicups user](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#create-new-hashicups-user) which going to authenticate against protected endpoints.
 7) Our target to achieve here are a) each order should be definable as a folder, and the name of the folder going to be used as a resource id, b) each file in the folder going to represent a single item of the order, in the file contents, we are going to have the quantity for the item.
-8) Now go to the path and run CRUD operation for ordering Coffee. 
+8) In this checkin code there are 2 order folder has been created under `~/cdk_hashicups/packages/iac/resources/` and there are items as order mentioned in file. 
+9) To see them, now go to the path and run CRUD operation for ordering items like Coffee. 
 
        cd cdk_hashicups/packages/iac
-       cdktf get
+       cdktf get              ## This will initialize the project with required module
        cdktf plan             ## It will display all the orders and how many resources going to add/update/remove
-       cdktf deploy
-       
-8) Once you run the above mentioned command (mentioned in step 6) you can see the orders (order1 and order2 etc.) and the items inside the order.
-9) Now you can create another new directory and item files for ordering coffee. Here is the path "cdk_hashicups/platform-challenge/packages/iac/resources". Note, we are using directory name as resource id and file contents inside the file as order of items.
-10) Handy API call commands to play with CRUD operation
+       cdktf deploy           ## deploy the resources.
+             
+10) Once you run the above mentioned commands, you can see the orders (order1 and order2 etc.) and the items inside the order in Terminal. To view/get the order id, check this file `~/cdk_hashicups/packages/iac/cdktf.out/stacks/stack/cdk.tf.json`.
+11) Use the API command (mentioned in steps number 13) to view all orders, delete orders etc.
+12) Now if you wanted to add new items (as order), create file `cdk_hashicups/packages/iac/resources/order[1 or 2]/item[0-100]`. and copy the file content from any items and then change the quantity number and id. And then run `cdktf plan/deploy` for adding items.
+13) If you wanted to create new resource then create new folder `cdk_hashicups/packages/iac/resources/order[0-100]` and then add the new items as file and their content. Here you need to edit one line in file `~/cdk_hashicups/packages/iac/main.ts` line number 56 that is  `new MyStack(app, "stack", { resourcePath: ["order1","order2", "order[0-100]"]});`. Meaning, exact new folder name created in `cdk_hashicups/packages/iac/resources/`. Now you have again perform `cdktf plan/deploy` for adding resources. To remind again, we are using directory name as resource id and file contents inside the file as order of items.
+14) Handy API call commands to play with CRUD operation
         
         Get order details by id:
         curl -X GET  -H "Authorization: <generated JWT token value>" localhost:19090/orders/1
