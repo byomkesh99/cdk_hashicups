@@ -38,11 +38,12 @@ We should have installed the following packages with version in the system:
 
            
 6) Now create new [Hashicups user](https://developer.hashicorp.com/terraform/tutorials/providers/provider-use#create-new-hashicups-user) which going to authenticate against protected endpoints.
-7) Now go to the path and run CRUD operation for ordering Coffee
+7) Our target to achieve here are a) each order should be definable as a folder, and the name of the folder going to be used as a resource id, b) each file in the folder going to represent a single item of the order, in the file contents, we are going to have the quantity for the item.
+8) Now go to the path and run CRUD operation for ordering Coffee. 
 
        cd cdk_hashicups/packages/iac
        cdktf get
-       cdktf plan order1            ## order2 or any stack you have created
+       cdktf plan             ## It will display all the orders and how many resources going to add/update/remove
        cdktf deploy
        
 8) Once you run the above mentioned command (mentioned in step 6) you can see the orders (order1 and order2 etc.) and the items inside the order.
