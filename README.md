@@ -51,7 +51,7 @@ We should have installed the following packages with version in the system:
        * order specific folder under `~/cdk_hashicups/packages/iac/resources/` and 
        * items for each order(s) as JSON file under order specific folder(s). 
        
-9) Adding a new resource: Any developer needing to add a new order(resource) needs to create a folder named as order<x> with files(as items). To accomodate this, in the main.ts file, replace this
+9) Adding a new resource: Any developer needing to add a new order(resource) needs to create a folder named as order`<x>` with files(as items). Also in the main.ts file, replace this
     
        new MyStack(app, "stack", { resourcePath: ["order1","order2"]});
     
