@@ -53,14 +53,16 @@ with this
     
        new MyStack(app, "stack", { resourcePath: ["order1","order2", "order<x>"]});
     
-10) Updating an existing resource: Any developer needing to add a new item needs to create a file named item<x> the existing order<x> folder. 
+10) Updating an existing resource: Any developer needing to add a new item needs to create a file named item`<x>` the existing order`<x>` folder. 
 11) To see the changes & deploy them, now go to the path and run CRUD operation.  
-
-       cd cdk_hashicups/packages/iac
-       cdktf get              ## This will initialize the project with required module
-       cdktf plan             ## It will display all the orders and how many resources going to add/update/remove
-       cdktf deploy           ## deploy the resources. You play with CRUD operation now
-       cdktf destroy          ## to destroy the resources. 
+    
+           <p>
+           cd cdk_hashicups/packages/iac
+           cdktf get              ## This will initialize the project with required module
+           cdktf plan             ## It will display all the orders and how many resources going to add/update/remove
+           cdktf deploy           ## deploy the resources. You play with CRUD operation now
+           cdktf destroy          ## to destroy the resources. 
+           <\p>
              
 12) Once you run the above mentioned commands, you can see the orders (order1 and order2 etc.) and the items inside the order in Terminal. To view/get the order id, check this file `~/cdk_hashicups/packages/iac/cdktf.out/stacks/stack/cdk.tf.json`.
 13) Use the API command (mentioned in steps number 16) to view all orders, delete orders etc.
